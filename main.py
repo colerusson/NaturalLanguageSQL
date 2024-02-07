@@ -14,7 +14,7 @@ def getPath(fname):
 
 
 # SQLITE
-sqliteDbPath = getPath("aid.sqlite")
+sqliteDbPath = getPath("Guitars.db")
 setupSqlPath = getPath("setup.sql")
 setupSqlDataPath = getPath("setupData.sql")
 
@@ -74,24 +74,19 @@ commonSqlOnlyRequest = ("Give me a sqlite select statement that answers the ques
                         "If there is an error do not expalin it!")
 strategies = {
     "zero_shot": setupSqlScript + commonSqlOnlyRequest,
-    "single_domain_double_shot": (setupSqlScript +
-                                  " Who doesn't have a way for us to text them? " +
-                                  "\nSELECT p.person_id, p.name\nFROM person p\nLEFT JOIN phone ph ON p.person_id = "
-                                  "ph.person_id AND ph.can_recieve_sms = 1\nWHERE ph.phone_id IS NULL;\n " +
-                                  commonSqlOnlyRequest)
 }
 
 questions = [
-    "Which are the top guitar brands by sales volume?"
-    "What are the most popular types of guitars in our inventory?"
-    "Which guitars have been sold the most in the past month?"
-    "Can you provide a list of customers who have purchased more than one guitar?"
-    "What is the average price of electric guitars compared to acoustic guitars?"
-    "Which guitar brands have the highest customer satisfaction ratings?"
-    "Can you recommend some beginner-friendly guitar models?"
-    "Which guitars are currently out of stock?"
-    "What are the top-selling guitar accessories?"
-    "Which cities have the highest demand for guitars?"
+    "Which are the top guitar brands by sales volume?",
+    "What are the most popular types of guitars in our inventory?",
+    "Which guitars have been sold the most in the past month?",
+    "Can you provide a list of customers who have purchased more than one guitar?",
+    "What is the average price of electric guitars compared to acoustic guitars?",
+    "Which guitar brands have the highest customer satisfaction ratings?",
+    "Can you recommend some beginner-friendly guitar models?",
+    "Which guitars are currently out of stock?",
+    "What are the top-selling guitar accessories?",
+    "Which cities have the highest demand for guitars?",
 ]
 
 
